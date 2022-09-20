@@ -122,4 +122,4 @@ This project is under the MIT license. See the [LICENSE](LICENSE.md) for more in
 
 ---
 
-Made with ♥ by Rodrigo Luigi - [Get in touch](https://www.linkedin.com/in/RodrigoLuigi/)
+Made with ♥ by Rodrigo Luigi - [Get in touch](https://www.linkedin.com/in/rodrigo-luigi/)
