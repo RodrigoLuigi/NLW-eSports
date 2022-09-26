@@ -3,7 +3,7 @@ import * as Checkbox from '@radix-ui/react-checkbox';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 
 
-import { GameController, Check } from 'phosphor-react';
+import { GameController, Check, CaretDown } from 'phosphor-react';
 
 import { Input } from '../Input';
 import { useEffect, useState, FormEvent } from 'react';
@@ -57,51 +57,57 @@ export function CreateAdModal(){
     <Dialog.Portal>
           <Dialog.Overlay className='bg-black/60 inset-0 fixed'/>
 
-          <Dialog.Content className='fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-black/25'>
-            <Dialog.Title className='text-3xl font-black'>Publique um anúncio</Dialog.Title>
+          <Dialog.Content className='fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg sm:w-[480px] shadow-black/25'>
+            <Dialog.Title className='text-titleClamp2 font-black'>Publique um anúncio</Dialog.Title>
 
               <form onSubmit={handleCreateAd} className='mt-8 flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
-                  <label htmlFor="game" className='font-semibold'>Qual o game?</label>
-                  <select 
-                  id="game" 
-                  name="game"
-                  className='bg-zinc-900 py-3 px-4 rounded text-sm placeholde:text-zinc-500'
-                  defaultValue=""
-                  >
-                    <option disabled value="">Selecione o game que deseja jogar</option>
 
-                    {games.map(game => {
-                      return <option key={game.id} value={game.id}>{game.title}</option>
-                    })}
-                  </select>
+                  <label htmlFor="game" className='font-semibold'>Qual o game?</label>
+
+                  <div className='flex justify-end items-center'>
+                    <select 
+                    id="game" 
+                    name="game"
+                    className='w-full bg-zinc-900 py-3 px-4 rounded text-sm text-zinc-400 appearance-none'
+                    defaultValue=""
+                    required
+                    >
+                      <option disabled value="">Selecione o game que deseja jogar</option>
+
+                      {games.map(game => {
+                        return <option key={game.id} value={game.id}>{game.title}</option>
+                      })}
+                    </select>
+                      <CaretDown size={24} className="text-zinc-500 absolute  mr-4" />
+                  </div>
                 </div>
 
                 <div className='flex flex-col gap-2'>
                   <label htmlFor="name">Seu nome (ou nickname)</label>
-                  <Input name="name" id="name" placeholder='como te chamam dentro do game?' />
+                  <Input name="name" id="name" placeholder='como te chamam dentro do game?' required />
                 </div>
 
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid sm:grid-cols-2 gap-6'>
                   <div className='flex flex-col gap-2'>
                     <label htmlFor="yearsPlaying">Joga a quantos anos?</label>
-                    <Input name="yearsPlaying" id="yearsPlaying" type="number" placeholder='Tudo bem ser ZERO' />
+                    <Input name="yearsPlaying" id="yearsPlaying" type="number" placeholder='Tudo bem ser ZERO' required/>
                   </div>
 
                   <div className='flex flex-col gap-2'>
                     <label htmlFor="discord">Qual seu Discord?</label>
-                    <Input name="discord" id="discord" placeholder='Usuário#0000' />
+                    <Input name="discord" id="discord" placeholder='Usuário#0000' required />
                   </div>
                 </div>
 
-                <div className='flex gap-6'>
+                <div className='flex flex-col gap-6 sm:flex-row'>
                   <div className='flex flex-col gap-2'>
 
                     <label htmlFor="weekDays">Quando costuma jogar?</label>
 
                     <ToggleGroup.Root 
                     type='multiple' 
-                    className='grid grid-cols-4 gap-2'
+                    className='flex gap-2 sm:grid grid-cols-4 '
                     value={weekDays}
                     onValueChange={setWeekDays}
                     >

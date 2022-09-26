@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        titleClamp: "clamp(2.6rem, 5vw, 3.75rem)",
+        titleClamp2: "clamp(1.2rem, 5vw, 1.75rem)"
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif']
       },
