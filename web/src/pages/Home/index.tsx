@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 
-import { CreateAdBanner } from '../components/CreateAdBanner';
-import { CreateAdModal } from '../components/CreateAdModal';
-import { GameBanner } from '../components/GameBanner';
+import { CreateAdBanner } from '../../components/CreateAdBanner';
+import { CreateAdModal } from '../../components/CreateAdModal';
+import { GameBanner } from '../../components/GameBanner';
 
-import logoImg from '../assets/logo-nlw-esports.svg';
+import logoImg from '../../assets/logo-nlw-esports.svg';
 
-import '../styles/main.css';
+import '../../styles/main.css';
 import axios from 'axios';
 interface Game {
   id: string;
